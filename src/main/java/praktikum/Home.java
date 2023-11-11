@@ -19,7 +19,7 @@ public class Home {
     //Кнопка "Личный кабинет"
     private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
     //[contains(@class, 'AppHeader_header__link')]
-    public void clickEnterTolAccountButton() {
+    public void clickEnterToAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(enterToAccount)));
         driver.findElement(enterToAccount).click();
