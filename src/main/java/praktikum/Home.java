@@ -1,5 +1,6 @@
 package praktikum;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,16 +19,18 @@ public class Home {
     private By enterToAccount = By.xpath("//button[text()='Войти в аккаунт']");
     //Кнопка "Личный кабинет"
     private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
-    private By buble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
-    //[contains(@class, 'AppHeader_header__link')]
+    private By bubble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
+
+    @Step("click to Enter To Account button")
     public void clickEnterToAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(enterToAccount)));
         driver.findElement(enterToAccount).click();
     }
+    @Step("click to Personal Account button")
     public void clickPersonalAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-        //.until(ExpectedConditions.invisibilityOf(driver.findElement(buble)));
+        //.until(ExpectedConditions.invisibilityOf(driver.findElement(bubble)));
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
         driver.findElement(personalAccount).click();
     }

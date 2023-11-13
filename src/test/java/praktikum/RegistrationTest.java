@@ -6,27 +6,28 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import praktikum.addition.Methods;
-import praktikum.addition.UserForRegistration;
+import praktikum.addition.RequestsToAPI;
+import praktikum.addition.User;
 
 import java.io.IOException;
 
 import static praktikum.addition.Constants.*;
 import static praktikum.addition.Methods.checkTransferToPage;
-import static praktikum.addition.Methods.deleteUser;
+import static praktikum.addition.RequestsToAPI.deleteUser;
 
 public class RegistrationTest {
     @Rule
     public DriverRule driverRule = new DriverRule();
     WebDriver driver;
-    UserForRegistration userForRegistration;
+    User user;
 
     @Test
     public void successfullyRegistrationTest() throws IOException, ParseException {
 
-        userForRegistration = Methods.parserToUser(SUCCESS_LOGIN);
-        System.out.println(userForRegistration.getName());
-        System.out.println(userForRegistration.getEmail());
-        System.out.println(userForRegistration.getPassword());
+        user = Methods.parserToUser(SUCCESS_LOGIN);
+        System.out.println(user.getName());
+        System.out.println(user.getEmail());
+        System.out.println(user.getPassword());
         driver = driverRule.getDriver();
         Home objHome = new Home(driver);
         objHome.clickPersonalAccountButton();
@@ -37,8 +38,8 @@ public class RegistrationTest {
         checkTransferToPage(driver, LOGIN, REGISTER);
 
         Register objRegister = new Register(driver);
-        objRegister.registration(userForRegistration.getName(), userForRegistration.getEmail(),
-                userForRegistration.getPassword());
+        objRegister.registration(user.getName(), user.getEmail(),
+                user.getPassword());
         objRegister.clickRegisterButton();
         checkTransferToPage(driver, REGISTER, LOGIN);
 
@@ -46,10 +47,10 @@ public class RegistrationTest {
     @Test
     public void registrationWithWrongPasswordTest() throws IOException, ParseException {
 
-        userForRegistration = Methods.parserToUser(LOGIN_WITH_WRONG_PASSWORD);
-        System.out.println(userForRegistration.getName());
-        System.out.println(userForRegistration.getEmail());
-        System.out.println(userForRegistration.getPassword());
+        user = Methods.parserToUser(LOGIN_WITH_WRONG_PASSWORD);
+        System.out.println(user.getName());
+        System.out.println(user.getEmail());
+        System.out.println(user.getPassword());
         driver = driverRule.getDriver();
         Home objHome = new Home(driver);
         objHome.clickPersonalAccountButton();
@@ -60,22 +61,22 @@ public class RegistrationTest {
         checkTransferToPage(driver, LOGIN, REGISTER);
 
         Register objRegister = new Register(driver);
-        objRegister.registration(userForRegistration.getName(), userForRegistration.getEmail(),
-                userForRegistration.getPassword());
+        objRegister.registration(user.getName(), user.getEmail(),
+                user.getPassword());
         objRegister.clickRegisterButton();
-        objRegister.checkAlertWrongPassword();
+        objRegister.checkAlertIncorrectPassword();
     }
     @After
     public void tearDown(){
         try {
-            var cred = Methods.genericUserCredentials(userForRegistration);
-            var login = Methods.loginUser(cred);
-            var token = Methods.getUserAccessToken(login);
+            var cred = Methods.genericUserCredentials(user);
+            var login = RequestsToAPI.loginUser(cred);
+            var token = RequestsToAPI.getUserAccessToken(login);
             deleteUser(token);
-            driver.quit();
         }
         catch (Exception e){
             System.out.println(AUTHORIZATION_NOT_POSSIBLE);
+            driver.quit();
         }
     }
 }

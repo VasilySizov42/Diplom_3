@@ -11,9 +11,11 @@ public class Constants {
     public static final String ORDER_HISTORY = "https://stellarburgers.nomoreparties.site/account/order-history";
     public static final String SUCCESS_LOGIN = "src/test/resources/users/ivan_sidorov.json";
     public static final String LOGIN_WITH_WRONG_PASSWORD = "src/test/resources/users/wrong_password.json";
+    public static final String USER_REGISTER_HANDLE = "/api/auth/register";
     public static final String USER_CHANGE_DELETE_HANDLE = "/api/auth/user";
     public static final String USER_LOGIN_HANDLE = "/api/auth/login";
     public static final String AUTHORIZATION_NOT_POSSIBLE = "Пользователь не был создан. Авторизация невозможна.";
+    public static final String INCORRECT_PASSWORD = "Некорректный пароль";
 
 
     //поля для заполнения: Имя, Фамилия, Адрес, Телефон, Дата(дд/мм/гггг), Комментарий

@@ -1,24 +1,15 @@
 package praktikum.addition;
 
-public class UserForRegistration {
-    private String name;
+public class Credentials {
     private String email;
     private String password;
 
-    public UserForRegistration(String name, String email, String password) {
-        this.name = name;
+    public Credentials() {
+    }
+
+    public Credentials(String email, String password) {
         this.email = email;
         this.password = password;
-    }
-    public UserForRegistration() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
