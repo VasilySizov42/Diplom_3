@@ -23,6 +23,8 @@ public class Register {
     private By email = By.xpath("//div[contains(@class, 'input_type_text')]/input");
     private By password = By.xpath("//div[contains(@class, 'input_type_password')]/input");
     private By alertIncorrectPassword = By.xpath("//p[contains(@class, 'input__error text_type_main-default')]");
+    private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+
     @Step("fill name field")
     public void fillNameField(String value) {
         driver.findElement(email).clear();
@@ -54,6 +56,13 @@ public class Register {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(enter)));
         driver.findElement(enter).click();
+    }
+    @Step("click to Personal Account button")
+    public void clickPersonalAccountButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                //.until(ExpectedConditions.invisibilityOf(driver.findElement(bubble)));
+                .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
+        driver.findElement(personalAccount).click();
     }
     @Step("check the appearance of the \"incorrect password\" warning")
     public void checkAlertIncorrectPassword() {

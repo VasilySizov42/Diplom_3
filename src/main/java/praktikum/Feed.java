@@ -9,14 +9,14 @@ import praktikum.addition.Constants;
 
 import java.time.Duration;
 
-public class ForgotPassword {
+public class Feed {
     private WebDriver driver;
-    public ForgotPassword(WebDriver driver){
+    public Feed(WebDriver driver){
         this.driver = driver;
-        driver.get(Constants.FORGOT_PASSWORD);
+        driver.get(Constants.FEED);
     }
-    private By enter = By.xpath("//a[contains(@class, 'Auth_link')]");
     private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+
     @Step("click to Personal Account button")
     public void clickPersonalAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -24,11 +24,4 @@ public class ForgotPassword {
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
         driver.findElement(personalAccount).click();
     }
-    @Step("click to Enter button")
-    public void clickEnterButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(30))
-                .until(ExpectedConditions.elementToBeClickable(driver.findElement(enter)));
-        driver.findElement(enter).click();
-    }
 }
-

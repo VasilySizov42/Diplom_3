@@ -33,7 +33,6 @@ public class Methods {
                 (String) jsonObject.get("email"),
                 (String) jsonObject.get("password"));
     }
-
     @Step("user credentials generation")
     public static Credentials genericUserCredentials(User user) {
         return new Credentials(user.getEmail(), user.getPassword());

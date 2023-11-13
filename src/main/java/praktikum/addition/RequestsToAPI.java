@@ -11,39 +11,6 @@ import static io.restassured.RestAssured.given;
 import static praktikum.addition.Constants.*;
 
 public class RequestsToAPI {
-    @Step("login a user")
-    public static ValidatableResponse loginUser(Credentials cred) {
-        return given().log().method()
-                .contentType(ContentType.JSON)
-                .baseUri(HOME)
-                .body(cred)
-                .when()
-                .post(USER_LOGIN_HANDLE)
-                .then().log().body()
-                ;
-    }
-
-    @Step("delete a user")
-    public static ValidatableResponse deleteUser(String token) {
-        return given().log().method()
-                .contentType(ContentType.JSON)
-                .header("Authorization", token)
-                .baseUri(HOME)
-                .when()
-                .delete(USER_CHANGE_DELETE_HANDLE)
-                .then().log().body()
-                ;
-    }
-
-    @Step("get user access token via login request")
-    public static String getUserAccessToken(ValidatableResponse response) {
-        return response
-                .extract()
-                .path("accessToken")
-                .toString()
-                ;
-    }
-
     @Step("register a new user")
     public static ValidatableResponse registerUser(User user) {
         return given().log().method()
@@ -55,7 +22,36 @@ public class RequestsToAPI {
                 .then().log().body()
                 ;
     }
-
+    @Step("login a user")
+    public static ValidatableResponse loginUser(Credentials cred) {
+        return given().log().method()
+                .contentType(ContentType.JSON)
+                .baseUri(HOME)
+                .body(cred)
+                .when()
+                .post(USER_LOGIN_HANDLE)
+                .then().log().body()
+                ;
+    }
+    @Step("delete a user")
+    public static ValidatableResponse deleteUser(String token) {
+        return given().log().method()
+                .contentType(ContentType.JSON)
+                .header("Authorization", token)
+                .baseUri(HOME)
+                .when()
+                .delete(USER_CHANGE_DELETE_HANDLE)
+                .then().log().body()
+                ;
+    }
+    @Step("get user access token via login request")
+    public static String getUserAccessToken(ValidatableResponse response) {
+        return response
+                .extract()
+                .path("accessToken")
+                .toString()
+                ;
+    }
     @Step("get user access token via Local Storage")
     public static String getToken(WebDriver driver) {
         LocalStorage localStorage = ((WebStorage) driver).getLocalStorage();

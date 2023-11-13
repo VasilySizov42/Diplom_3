@@ -9,8 +9,6 @@ import praktikum.addition.Constants;
 
 import java.time.Duration;
 
-import static org.hamcrest.Matchers.not;
-
 public class Login {
     private WebDriver driver;
     public Login(WebDriver driver){
@@ -23,6 +21,8 @@ public class Login {
     private By recoverPassword = By.xpath("//a[text()='Восстановить пароль']");
     private By enter = By.xpath("//button[contains(@class, 'button_button')]");
     private By bubble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
+    private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+
 
     @Step("fill email field")
     public void fillEmailField(String value) {
@@ -57,5 +57,11 @@ public class Login {
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(enter)));
         driver.findElement(enter).click();
     }
-
+    @Step("click to Personal Account button")
+    public void clickPersonalAccountButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                //.until(ExpectedConditions.invisibilityOf(driver.findElement(bubble)));
+                .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
+        driver.findElement(personalAccount).click();
+    }
 }

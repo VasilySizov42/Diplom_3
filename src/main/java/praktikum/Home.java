@@ -15,9 +15,7 @@ public class Home {
         this.driver = driver;
         driver.get(Constants.HOME);
     }
-    //Кнопка "Войти в аккаунт"
     private By enterToAccount = By.xpath("//button[text()='Войти в аккаунт']");
-    //Кнопка "Личный кабинет"
     private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
     private By bubble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
 
