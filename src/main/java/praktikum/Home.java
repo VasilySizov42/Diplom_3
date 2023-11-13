@@ -18,6 +18,7 @@ public class Home {
     private By enterToAccount = By.xpath("//button[text()='Войти в аккаунт']");
     //Кнопка "Личный кабинет"
     private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+    private By buble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
     //[contains(@class, 'AppHeader_header__link')]
     public void clickEnterToAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -26,6 +27,7 @@ public class Home {
     }
     public void clickPersonalAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
+        //.until(ExpectedConditions.invisibilityOf(driver.findElement(buble)));
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
         driver.findElement(personalAccount).click();
     }

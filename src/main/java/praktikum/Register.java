@@ -1,5 +1,6 @@
 package praktikum;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,7 @@ public class Register {
     private By register = By.xpath("//button[contains(@class, 'button_button')]");
     private By email = By.xpath("//div[contains(@class, 'input_type_text')]/input");
     private By password = By.xpath("//div[contains(@class, 'input_type_password')]/input");
+    private By alertWrongPassword = By.xpath("//p[contains(@class, 'input__error text_type_main-default')]");
 
     public void fillNameField(String value) {
         driver.findElements(email).get(0).clear();
@@ -45,6 +47,14 @@ public class Register {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(enter)));
         driver.findElement(enter).click();
+    }
+    public void checkAlertWrongPassword() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.
+                        visibilityOf(driver.findElement(alertWrongPassword)));
+        var expected = "Некорректный пароль";
+        var actual = driver.findElement(alertWrongPassword).getText();
+        Assert.assertEquals(expected, actual);
     }
 }
 
