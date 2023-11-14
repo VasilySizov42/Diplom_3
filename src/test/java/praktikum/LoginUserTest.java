@@ -1,5 +1,7 @@
 package praktikum;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Before;
@@ -22,6 +24,8 @@ public class LoginUserTest {
     WebDriver driver;
     User user;
     @Before
+    @DisplayName("Create new user")
+    @Description("Attempt to create a new user with static profile data")
     public void register() throws IOException, ParseException {
         user = Methods.parserToUser(SUCCESS_LOGIN);
         System.out.println(user.getName());
@@ -30,6 +34,8 @@ public class LoginUserTest {
         RequestsToAPI.registerUser(user);
     }
     @Test
+    @DisplayName("Check login via Personal Account button")
+    @Description("Attempt to login a user via Personal Account button in Home page")
     public void loginViaPersonalAccountButton() {
 
         driver = driverRule.getDriver();
@@ -43,6 +49,8 @@ public class LoginUserTest {
         checkTransferToPage(driver, LOGIN, HOME);
     }
     @Test
+    @DisplayName("Check login via Enter To Account button")
+    @Description("Attempt to login a user via Enter To Account button in Home page")
     public void loginViaEnterToAccountButton() {
 
         driver = driverRule.getDriver();
@@ -56,6 +64,8 @@ public class LoginUserTest {
         checkTransferToPage(driver, LOGIN, HOME);
     }
     @Test
+    @DisplayName("Check login via Enter button in Registration page")
+    @Description("Attempt to login a user via Enter button in Registration page")
     public void loginViaEnterInRegistrationPage() {
 
         driver = driverRule.getDriver();
@@ -69,6 +79,8 @@ public class LoginUserTest {
         checkTransferToPage(driver, LOGIN, HOME);
     }
     @Test
+    @DisplayName("Check login via Enter button in Forgot Password page")
+    @Description("Attempt to login a user via Enter button in Forgot Password page")
     public void loginViaEnterInForgotPasswordPage() {
 
         driver = driverRule.getDriver();
@@ -82,6 +94,8 @@ public class LoginUserTest {
         checkTransferToPage(driver, LOGIN, HOME);
     }
     @After
+    @DisplayName("Delete created user")
+    @Description("Attempt to delete created user")
     public void tearDown(){
         try {
             var token = RequestsToAPI.getToken(driver);

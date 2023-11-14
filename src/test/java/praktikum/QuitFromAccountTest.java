@@ -1,5 +1,7 @@
 package praktikum;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Before;
@@ -23,6 +25,8 @@ public class QuitFromAccountTest {
     WebDriver driver;
     User user;
     @Before
+    @DisplayName("Create new user")
+    @Description("Attempt to create a new user with static profile data")
     public void register() throws IOException, ParseException {
         user = Methods.parserToUser(SUCCESS_LOGIN);
         System.out.println(user.getName());
@@ -31,8 +35,9 @@ public class QuitFromAccountTest {
         RequestsToAPI.registerUser(user);
     }
     @Test
+    @DisplayName("Check quit from account")
+    @Description("Attempt to quit from account via Quit button in Profile page")
     public void quitFromAccount() {
-
         driver = driverRule.getDriver();
         Login objLogin = new Login(driver);
         objLogin.authorization(user.getEmail(), user.getPassword());
@@ -46,6 +51,8 @@ public class QuitFromAccountTest {
         checkTransferToPage(driver, PROFILE, LOGIN);
     }
     @After
+    @DisplayName("Delete created user")
+    @Description("Attempt to delete created user")
     public void tearDown(){
         try {
             var cred = Methods.genericUserCredentials(user);

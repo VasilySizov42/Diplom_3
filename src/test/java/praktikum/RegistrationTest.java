@@ -1,5 +1,7 @@
 package praktikum;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Rule;
@@ -21,6 +23,8 @@ public class RegistrationTest {
     WebDriver driver;
     User user;
 
+    @DisplayName("Check successfully user registration")
+    @Description("Attempt to register a user with acceptable parameters")
     @Test
     public void successfullyRegistrationTest() throws IOException, ParseException {
 
@@ -44,6 +48,8 @@ public class RegistrationTest {
         checkTransferToPage(driver, REGISTER, LOGIN);
 
     }
+    @DisplayName("Check registration with wrong password")
+    @Description("Attempt to register a user with a length less than acceptable")
     @Test
     public void registrationWithWrongPasswordTest() throws IOException, ParseException {
 
@@ -67,6 +73,8 @@ public class RegistrationTest {
         objRegister.checkAlertIncorrectPassword();
     }
     @After
+    @DisplayName("Delete created user")
+    @Description("Attempt to delete created user")
     public void tearDown(){
         try {
             var cred = Methods.genericUserCredentials(user);
