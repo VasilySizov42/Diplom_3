@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import praktikum.account.Profile;
 import praktikum.addition.Methods;
 import praktikum.addition.RequestsToAPI;
 import praktikum.addition.User;
@@ -16,7 +17,7 @@ import static praktikum.addition.Constants.*;
 import static praktikum.addition.Methods.checkTransferToPage;
 import static praktikum.addition.RequestsToAPI.deleteUser;
 
-public class TransferToPersonalAccountTest {
+public class QuitFromAccountTest {
     @Rule
     public DriverRule driverRule = new DriverRule();
     WebDriver driver;
@@ -30,39 +31,7 @@ public class TransferToPersonalAccountTest {
         RequestsToAPI.registerUser(user);
     }
     @Test
-    public void transferToPersonalAccountFromHomePage() {
-
-        driver = driverRule.getDriver();
-        Home objHome = new Home(driver);
-        objHome.clickPersonalAccountButton();
-        checkTransferToPage(driver, HOME, LOGIN);
-    }
-    @Test
-    public void transferToPersonalAccountFromForgotPasswordPage() {
-
-        driver = driverRule.getDriver();
-        ForgotPassword objForgotPassword = new ForgotPassword(driver);
-        objForgotPassword.clickPersonalAccountButton();
-        checkTransferToPage(driver, FORGOT_PASSWORD, LOGIN);
-    }
-    @Test
-    public void transferToPersonalAccountFromRegisterPage() {
-
-        driver = driverRule.getDriver();
-        Register objRegister = new Register(driver);
-        objRegister.clickPersonalAccountButton();
-        checkTransferToPage(driver, REGISTER, LOGIN);
-    }
-    @Test
-    public void transferToPersonalAccountFromFeedPage() {
-
-        driver = driverRule.getDriver();
-        Feed objFeed = new Feed(driver);
-        objFeed.clickPersonalAccountButton();
-        checkTransferToPage(driver, FEED, LOGIN);
-    }
-    @Test
-    public void transferToPersonalAccountWithAuthorization() {
+    public void quitFromAccount() {
 
         driver = driverRule.getDriver();
         Login objLogin = new Login(driver);
@@ -72,6 +41,9 @@ public class TransferToPersonalAccountTest {
         Home objHome = new Home(driver);
         objHome.clickPersonalAccountButton();
         checkTransferToPage(driver, HOME, PROFILE);
+        Profile objProfile = new Profile(driver);
+        objProfile.clickExitButton();
+        checkTransferToPage(driver, PROFILE, LOGIN);
     }
     @After
     public void tearDown(){

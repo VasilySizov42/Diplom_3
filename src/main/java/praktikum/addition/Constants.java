@@ -50,7 +50,7 @@ public class Constants {
             {7, "Да, обязательно. Всем самокатов! И Москве, и Московской области."},
     };
 
-    public static final int IMPL_WAIT = 50;
-    public static final int PG_LOAD_TMT = 50;
-    public static final int SCR_TMT = 50;
+    public static final int IMPL_WAIT = 20;
+    public static final int PG_LOAD_TMT = 20;
+    public static final int SCR_TMT = 20;
 };
