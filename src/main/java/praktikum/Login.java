@@ -15,13 +15,13 @@ public class Login {
         this.driver = driver;
         driver.get(Constants.LOGIN);
     }
-    private By email = By.xpath("//div[contains(@class, 'input_type_text')]/input");
-    private By password = By.xpath("//div[contains(@class, 'input_type_password')]/input");
-    private By register = By.xpath("//a[text()='Зарегистрироваться']");
-    private By recoverPassword = By.xpath("//a[text()='Восстановить пароль']");
-    private By enter = By.xpath("//button[contains(@class, 'button_button')]");
-    private By bubble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
-    private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+    private static final By email = By.xpath("//div[contains(@class, 'input_type_text')]/input");
+    private static final By password = By.xpath("//div[contains(@class, 'input_type_password')]/input");
+    private static final By register = By.xpath("//a[text()='Зарегистрироваться']");
+    private static final By recoverPassword = By.xpath("//a[text()='Восстановить пароль']");
+    private static final By enter = By.xpath("//button[contains(@class, 'button_button')]");
+    private static final By bubble = By.xpath("//div[contains(@class, 'Modal_modal_overlay__')]");
+    private static final By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
 
 
     @Step("fill email field")

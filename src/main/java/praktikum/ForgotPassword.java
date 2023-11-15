@@ -15,8 +15,8 @@ public class ForgotPassword {
         this.driver = driver;
         driver.get(Constants.FORGOT_PASSWORD);
     }
-    private By enter = By.xpath("//a[contains(@class, 'Auth_link')]");
-    private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+    private static final By enter = By.xpath("//a[contains(@class, 'Auth_link')]");
+    private static final By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
     @Step("click to Personal Account button")
     public void clickPersonalAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))

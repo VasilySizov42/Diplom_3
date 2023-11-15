@@ -18,14 +18,11 @@ public class Register {
         this.driver = driver;
         driver.get(Constants.REGISTER);
     }
-    private By enter = By.xpath("//a[contains(@class, 'Auth_link')]");
-    private By register = By.xpath("//button[contains(@class, 'button_button')]");
-    private By registrationFields = By.xpath("//form[contains(@class, 'Auth_form__')]//input");
-    /*private By email = By.xpath("//div/input[contains(@value, null)]");
-    private By password = By.xpath("//div/input[contains(@name, 'Пароль')]");
-    private By name = By.xpath("//div/input[contains(@value, 'polk')]");*/
-    private By alertIncorrectPassword = By.xpath("//p[contains(@class, 'input__error text_type_main-default')]");
-    private By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
+    private static final By enter = By.xpath("//a[contains(@class, 'Auth_link')]");
+    private static final By register = By.xpath("//button[contains(@class, 'button_button')]");
+    private static final By registrationFields = By.xpath("//form[contains(@class, 'Auth_form__')]//input");
+    private static final By alertIncorrectPassword = By.xpath("//p[contains(@class, 'input__error text_type_main-default')]");
+    private static final By personalAccount = By.xpath("//p[text()='Личный Кабинет']/parent::a");
 
     @Step("fill name field")
     public void fillNameField(String value) {
@@ -42,7 +39,8 @@ public class Register {
         driver.findElements(registrationFields).get(2).clear();
         driver.findElements(registrationFields).get(2).sendKeys(value);
     }
-    public void registration(String name, String email, String password) {
+
+    @Step("registration")public void registration(String name, String email, String password) {
         fillNameField(name);
         fillEmailField(email);
         fillPasswordField(password);
