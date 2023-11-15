@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.pom;
 
 import io.qameta.allure.Step;
 import org.junit.Assert;
@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.addition.Constants;
+import praktikum.addition.Methods;
 
 import java.time.Duration;
 
@@ -40,7 +41,8 @@ public class Register {
         driver.findElements(registrationFields).get(2).sendKeys(value);
     }
 
-    @Step("registration")public void registration(String name, String email, String password) {
+    @Step("registration")
+    public void registration(String name, String email, String password) {
         fillNameField(name);
         fillEmailField(email);
         fillPasswordField(password);
@@ -60,7 +62,6 @@ public class Register {
     @Step("click to Personal Account button")
     public void clickPersonalAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                //.until(ExpectedConditions.invisibilityOf(driver.findElement(bubble)));
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
         driver.findElement(personalAccount).click();
     }

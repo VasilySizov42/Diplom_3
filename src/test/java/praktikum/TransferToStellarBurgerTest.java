@@ -8,7 +8,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import praktikum.account.Profile;
+import praktikum.pom.Home;
+import praktikum.pom.Login;
+import praktikum.pom.Profile;
 import praktikum.addition.Methods;
 import praktikum.addition.RequestsToAPI;
 import praktikum.addition.User;
@@ -18,7 +20,7 @@ import java.io.IOException;
 import static praktikum.addition.Constants.*;
 import static praktikum.addition.Methods.checkTransferToPage;
 import static praktikum.addition.RequestsToAPI.deleteUser;
-public class TransferFromPersonalAccountToConstructorTest {
+public class TransferToStellarBurgerTest {
     @Rule
     public DriverRule driverRule = new DriverRule();
     WebDriver driver;
@@ -34,8 +36,9 @@ public class TransferFromPersonalAccountToConstructorTest {
         RequestsToAPI.registerUser(user);
     }
     @Test
-    @DisplayName("Check transfer from a Personal Account to Home page with Constructor button")
-    @Description("Attempt to transfer from a Personal Account to Home page with Constructor button")
+    @DisplayName("Check transfer from a Personal Account to Home page with StellarBurger button")
+    @Description("Attempt to transfer from a Personal Account to Home page with StellarBurger button")
+
     public void transferFromPersonalAccountToConstructor() {
         driver = driverRule.getDriver();
         Login objLogin = new Login(driver);
@@ -46,7 +49,7 @@ public class TransferFromPersonalAccountToConstructorTest {
         objHome.clickPersonalAccountButton();
         checkTransferToPage(driver, HOME, PROFILE);
         Profile objProfile = new Profile(driver);
-        objProfile.clickConstructorButton();
+        objProfile.clickStellarBurgerButton();
         checkTransferToPage(driver, PROFILE, HOME);
     }
     @After
@@ -63,3 +66,4 @@ public class TransferFromPersonalAccountToConstructorTest {
         }
     }
 }
+

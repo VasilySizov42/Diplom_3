@@ -11,6 +11,10 @@ import org.openqa.selenium.WebDriver;
 import praktikum.addition.Methods;
 import praktikum.addition.RequestsToAPI;
 import praktikum.addition.User;
+import praktikum.pom.ForgotPassword;
+import praktikum.pom.Home;
+import praktikum.pom.Login;
+import praktikum.pom.Register;
 
 import java.io.IOException;
 

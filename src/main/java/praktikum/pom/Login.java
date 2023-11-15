@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.pom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -34,6 +34,7 @@ public class Login {
         driver.findElement(password).clear();
         driver.findElement(password).sendKeys(value);
     }
+    @Step("login")
     public void authorization(String email, String password) {
         fillEmailField(email);
         fillPasswordField(password);
@@ -41,8 +42,8 @@ public class Login {
     @Step("click to Register button")
     public void clickRegisterButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-        .until((ExpectedConditions.invisibilityOf(driver.findElement(bubble))));
-        //.until(ExpectedConditions.elementToBeClickable(driver.findElement(register)));
+        //.until((ExpectedConditions.invisibilityOf(driver.findElement(bubble))));
+        .until(ExpectedConditions.elementToBeClickable(driver.findElement(register)));
         driver.findElement(register).click();
     }
     @Step("click to Recover Password button")
@@ -60,7 +61,6 @@ public class Login {
     @Step("click to Personal Account button")
     public void clickPersonalAccountButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                //.until(ExpectedConditions.invisibilityOf(driver.findElement(bubble)));
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
         driver.findElement(personalAccount).click();
     }

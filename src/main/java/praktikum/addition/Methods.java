@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import praktikum.Home;
+import praktikum.pom.Home;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -47,8 +47,7 @@ public class Methods {
     public static int searchScrollBarPosition(WebDriver driver) {
         var clientHeight = driver.findElement(Home.getIngredients()).getDomProperty("clientHeight");
         var scrollTop = driver.findElement(Home.getIngredients()).getDomProperty("scrollTop");
-        var scrollingInPercent = (Integer.parseInt (scrollTop)*100)/Integer.parseInt (clientHeight);
-        return scrollingInPercent;
+        return (Integer.parseInt (scrollTop)*100)/Integer.parseInt (clientHeight);
     }
 
     public static void waitForReady(WebDriver driver) {

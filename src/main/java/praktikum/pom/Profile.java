@@ -1,4 +1,4 @@
-package praktikum.account;
+package praktikum.pom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.addition.Constants;
+import praktikum.addition.Methods;
 
 import java.time.Duration;
 

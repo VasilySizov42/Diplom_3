@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.pom;
 
 import io.qameta.allure.Step;
 import org.junit.Assert;
@@ -32,12 +32,14 @@ public class Home {
     }
     @Step("click to Enter To Account button")
     public void clickEnterToAccountButton() {
+        Methods.waitForReady(driver);
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(enterToAccount)));
         driver.findElement(enterToAccount).click();
     }
     @Step("click to Personal Account button")
     public void clickPersonalAccountButton() {
+        Methods.waitForReady(driver);
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(personalAccount)));
         driver.findElement(personalAccount).click();

@@ -6,8 +6,9 @@ import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import praktikum.pom.Home;
 
-public class SwitchingBetweenSectionsOfConstructorTest {
+public class ConstructorTest {
     @Rule
     public DriverRule driverRule = new DriverRule();
     WebDriver driver;
