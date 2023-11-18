@@ -39,7 +39,7 @@ public class TransferToStellarBurgerTest {
     @DisplayName("Check transfer from a Personal Account to Home page with StellarBurger button")
     @Description("Attempt to transfer from a Personal Account to Home page with StellarBurger button")
 
-    public void transferFromPersonalAccountToConstructor() {
+    public void transferFromPersonalAccountToStellarBurger() {
         driver = driverRule.getDriver();
         Login objLogin = new Login(driver);
         objLogin.authorization(user.getEmail(), user.getPassword());

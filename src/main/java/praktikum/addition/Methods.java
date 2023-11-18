@@ -47,6 +47,7 @@ public class Methods {
     public static int searchScrollBarPosition(WebDriver driver) {
         var clientHeight = driver.findElement(Home.getIngredients()).getDomProperty("clientHeight");
         var scrollTop = driver.findElement(Home.getIngredients()).getDomProperty("scrollTop");
+        //System.out.println((Integer.parseInt (scrollTop)*100)/Integer.parseInt (clientHeight));
         return (Integer.parseInt (scrollTop)*100)/Integer.parseInt (clientHeight);
     }
 

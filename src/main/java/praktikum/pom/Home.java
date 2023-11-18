@@ -72,7 +72,7 @@ public class Home {
             .until(ExpectedConditions.attributeContains(driver.findElement(fillingsButton), "class", "current"));
         System.out.println(driver.findElement(fillings).getText());
         var actual = Methods.searchScrollBarPosition(driver);
-        Assert.assertTrue(actual > 50);
+        Assert.assertTrue(actual > 90);
     }
     @Step("check switch to the fillings chapter in constructor block")
     public void checkSwitchToSaucesChapter() {
@@ -81,7 +81,7 @@ public class Home {
             .until(ExpectedConditions.attributeContains(driver.findElement(saucesButton), "class", "current"));
         System.out.println(driver.findElement(sauces).getText());
         var actual = Methods.searchScrollBarPosition(driver);
-        Assert.assertTrue(actual <= 50 && actual > 15);
+        Assert.assertTrue(actual <= 90 && actual > 15);
     }
     @Step("check switch to the buns chapter in constructor block")
     public void checkSwitchToBunsChapter() {

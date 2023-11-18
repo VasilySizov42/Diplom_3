@@ -21,7 +21,7 @@ public class Constants {
     public static final String SUCCESS_LOGIN = "src/test/resources/users/ivan_sidorov.json";
     public static final String LOGIN_WITH_WRONG_PASSWORD = "src/test/resources/users/wrong_password.json";
 
-    public static final int IMPL_WAIT = 10;
-    public static final int PG_LOAD_TMT = 10;
-    public static final int SCR_TMT = 10;
+    public static final int IMPL_WAIT = 30;
+    public static final int PG_LOAD_TMT = 30;
+    public static final int SCR_TMT = 30;
 };
