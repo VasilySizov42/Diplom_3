@@ -39,25 +39,19 @@ public class DriverRule extends ExternalResource {
 
     private void setUpChrome(){
         // драйвер для браузера Chrome
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-        ChromeDriverService service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("C:/Program Files (x86)/Google/Chrome/chromedriver-win64/chromedriver.exe"))
-                .build();
-
-        ChromeOptions options = new ChromeOptions()
-                .setBinary("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe");
-        driver = new ChromeDriver(service, options);
+        System.setProperty(
+                "webdriver.chrome.driver",
+                "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe"
+        );
+        driver = new ChromeDriver();
     }
     private void setUpYandex(){
         // драйвер для браузера Chrome
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-        ChromeDriverService service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("C:/Program Files (x86)/Google/Chrome/yandexdriver-win64/yandexdriver.exe"))
-                .build();
-
-        ChromeOptions options = new ChromeOptions()
-                .setBinary("C:/Users/Vasiliy/AppData/Local/Yandex/YandexBrowser/Application/browser.exe");
-        driver = new ChromeDriver(service, options);
+        System.setProperty(
+                "webdriver.chrome.driver",
+                "C:/Program Files (x86)/Google/Chrome/yandexdriver-win64/yandexdriver.exe"
+        );
+        driver = new ChromeDriver();
     }
     @Override
     protected void after() {
