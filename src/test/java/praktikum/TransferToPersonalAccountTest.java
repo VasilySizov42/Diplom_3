@@ -29,9 +29,6 @@ public class TransferToPersonalAccountTest {
     @Description("Attempt to create a new user with static profile data")
     public void register() throws IOException, ParseException {
         user = Methods.parserToUser(SUCCESS_LOGIN);
-        System.out.println(user.getName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
         RequestsToAPI.registerUser(user);
     }
     @Test

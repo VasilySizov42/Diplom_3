@@ -12,15 +12,14 @@ import static praktikum.addition.Constants.*;
 
 public class RequestsToAPI {
     @Step("register a new user")
-    public static ValidatableResponse registerUser(User user) {
-        return given().log().method()
+    public static void registerUser(User user) {
+        given().log().method()
                 .contentType(ContentType.JSON)
                 .baseUri(HOME)
                 .body(user)
                 .when()
                 .post(USER_REGISTER_HANDLE)
-                .then().log().body()
-                ;
+                .then().log().body();
     }
     @Step("login a user")
     public static ValidatableResponse loginUser(Credentials cred) {

@@ -32,9 +32,6 @@ public class RegistrationTest {
     public void successfullyRegistrationTest() throws IOException, ParseException {
 
         user = Methods.parserToUser(SUCCESS_LOGIN);
-        System.out.println(user.getName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
         driver = driverRule.getDriver();
         Home objHome = new Home(driver);
         objHome.clickPersonalAccountButton();
@@ -57,9 +54,6 @@ public class RegistrationTest {
     public void registrationWithWrongPasswordTest() throws IOException, ParseException {
 
         user = Methods.parserToUser(LOGIN_WITH_WRONG_PASSWORD);
-        System.out.println(user.getName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
         driver = driverRule.getDriver();
         Home objHome = new Home(driver);
         objHome.clickPersonalAccountButton();

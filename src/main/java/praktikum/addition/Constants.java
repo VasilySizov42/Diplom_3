@@ -7,9 +7,7 @@ public class Constants {
     public static final String LOGIN = "https://stellarburgers.nomoreparties.site/login";
     public static final String FORGOT_PASSWORD = "https://stellarburgers.nomoreparties.site/forgot-password";
     public static final String REGISTER = "https://stellarburgers.nomoreparties.site/register";
-    public static final String ACCOUNT = "https://stellarburgers.nomoreparties.site/account";
     public static final String PROFILE = "https://stellarburgers.nomoreparties.site/account/profile";
-    public static final String ORDER_HISTORY = "https://stellarburgers.nomoreparties.site/account/order-history";
     //Handles
     public static final String USER_REGISTER_HANDLE = "/api/auth/register";
     public static final String USER_CHANGE_DELETE_HANDLE = "/api/auth/user";
@@ -24,4 +22,4 @@ public class Constants {
     public static final int IMPL_WAIT = 30;
     public static final int PG_LOAD_TMT = 30;
     public static final int SCR_TMT = 30;
-};
+}
